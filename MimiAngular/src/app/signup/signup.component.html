@@ -1,0 +1,78 @@
+<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" [mustMatch]="['Password', 'ConfirmPassword']"
+  novalidate>
+  <mat-card class="m-auto">
+    <mat-toolbar-row class="form-group">
+      <mat-toolbar class="col-md-6 bg-white">
+        <mat-toolbar-row>
+          <mat-form-field class="w-100">
+            <input matInput placeholder="Last name" name="LastName" [(ngModel)]="user.LastName" #LastName="ngModel"
+              required>
+          </mat-form-field>
+        </mat-toolbar-row>
+        <mat-toolbar-row *ngIf="f.submitted && LastName.invalid">
+          <mat-toolbar>
+            This field is required
+          </mat-toolbar>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <mat-toolbar class="col-md-6 bg-white">
+        <mat-toolbar-row>
+          <mat-form-field class="w-100">
+            <input matInput placeholder="First name" name="FirstName" [(ngModel)]="user.FirstName" #FirstName="ngModel"
+              required>
+          </mat-form-field>
+        </mat-toolbar-row>
+        <mat-toolbar-row *ngIf="f.submitted && FirstName.invalid">
+          <mat-toolbar>
+            This field is required
+          </mat-toolbar>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </mat-toolbar-row>
+      <mat-toolbar-row class="form-group">
+        <mat-toolbar class="col-md-6 bg-white">
+          <mat-toolbar-row>
+            <mat-form-field class="w-100">
+              <input matInput placeholder="Middle name" name="MiddleName" [(ngModel)]="user.MiddleName" #MiddleName="ngModel">
+            </mat-form-field>
+          </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-toolbar class="col-md-6 bg-white">
+          <mat-toolbar-row>
+            <mat-form-field class="w-100">
+              <input matInput placeholder="Email" name="Email" [(ngModel)]="user.Email" #Email="ngModel" required >
+            </mat-form-field>
+          </mat-toolbar-row>
+          <mat-toolbar-row *ngIf="f.submitted && Email.invalid">
+            <mat-toolbar>This field is required</mat-toolbar>
+          </mat-toolbar-row>
+        </mat-toolbar>
+      </mat-toolbar-row>
+      <mat-toolbar-row class="form-group">
+        <mat-toolbar class="col-md-6 bg-white">
+          <mat-toolbar-row>
+            <mat-form-field class="w-100">
+              <input matInput placeholder="Password" type="password" name="Password" [(ngModel)]="user.Password" #Password="ngModel" required>
+            </mat-form-field>
+          </mat-toolbar-row>
+          <mat-toolbar-row *ngIf="f.submitted && Password.invalid">
+            <mat-toolbar>This field is required</mat-toolbar>
+          </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-toolbar class="col-md-6 bg-white">
+          <mat-toolbar-row>
+          <mat-form-field class="w-100">
+            <input matInput placeholder="Confirm Password" type="password" name="ConfirmPassword" [(ngModel)]="user['ConfirmPassword']"
+              #ConfirmPassword="ngModel" required>
+          </mat-form-field>
+        </mat-toolbar-row>
+        <mat-toolbar-row *ngIf="f.submitted && ConfirmPassword.invalid">
+          <mat-toolbar>This field is required</mat-toolbar>
+        </mat-toolbar-row>
+        </mat-toolbar>
+      </mat-toolbar-row>
+      <mat-toolbar-row class="form-group justify-content-center">
+        <button mat-flat-button type="submit" color="primary">Submit</button>
+      </mat-toolbar-row>
+  </mat-card>
+</form>
